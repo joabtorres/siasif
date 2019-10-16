@@ -32,7 +32,7 @@ class servidorController extends controller {
             }
             $this->loadTemplate($viewName, $dados);
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -50,7 +50,7 @@ class servidorController extends controller {
             }
             $this->loadView($viewName, $dados);
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 

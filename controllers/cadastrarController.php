@@ -34,7 +34,7 @@ class cadastrarController extends controller {
 		$requisicao = md5(implode($_POST));
 
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("Location: /cadastrar/unidade");
+		    header("location: cadastrar/unidade");
 		} else {
 		    $_SESSION['last_request'] = $requisicao;
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
@@ -56,7 +56,7 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 
@@ -82,7 +82,7 @@ class cadastrarController extends controller {
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("Location: /cadastrar/servidor");
+		    header("location: cadastrar/servidor");
 		} else {
 
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
@@ -193,7 +193,7 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 
@@ -213,12 +213,12 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("Location: /home");
+		header("location: home");
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("Location: /cadastrar/relatorio/" . $cod_servidor);
+		    header("location: cadastrar/relatorio/" . $cod_servidor);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$relatorio = array();
@@ -271,7 +271,7 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 
@@ -291,12 +291,12 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("Location: /home");
+		header("location: home");
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("Location: /cadastrar/defesa/" . $cod_servidor);
+		    header("location: cadastrar/defesa/" . $cod_servidor);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$defesa = array();
@@ -349,7 +349,7 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 
@@ -369,13 +369,13 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("Location: /home");
+		header("location: home");
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("Location: /cadastrar/prorrogacao/" . $cod_servidor);
+		    header("location: cadastrar/prorrogacao/" . $cod_servidor);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$prorrogacao = array();
@@ -430,7 +430,7 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 
@@ -536,7 +536,7 @@ class cadastrarController extends controller {
 	    $dados['usuario'] = $usuario;
 	    $this->loadTemplate($view, $dados);
 	} else {
-	    header("Location: /home");
+	    header("location: home");
 	}
     }
 

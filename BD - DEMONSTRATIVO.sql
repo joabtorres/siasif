@@ -226,8 +226,10 @@ DELIMITER ;
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `cod` int(11) NOT NULL,
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `cod` int(11) NOT NULL AUTO_INCREMENT,
+  `unidade_cod` int(11) UNSIGNED NOT NULL,
   `nome` varchar(20) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
   `usuario` varchar(30) NOT NULL,
@@ -238,19 +240,19 @@ CREATE TABLE `usuario` (
   `nivel_acesso` tinyint(1) UNSIGNED NOT NULL,
   `status` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
   `imagem` varchar(255) DEFAULT NULL,
-  `data` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `data` date DEFAULT NULL,
+  PRIMARY KEY (`cod`),
+  UNIQUE KEY `usuario_usuario_UNIQUE` (`usuario`),
+  UNIQUE KEY `email_usuario_UNIQUE` (`email`),
+  KEY `fk_unidade_usuario` (`unidade_cod`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`cod`, `nome`, `sobrenome`, `usuario`, `email`, `senha`, `cargo`, `genero`, `nivel_acesso`, `status`, `imagem`, `data`) VALUES
-(1, 'Joab', 'T. Alencar', 'joab.alencar', 'joabtorres1508@gmail.com', '47cafbff7d1c4463bbe7ba972a2b56e3', 'Adminstrador', 'M', 3, 1, 'uploads/usuarios/112c2dbecd293f56b5889673870881bb.jpg', '2019-07-14'),
-(2, 'DIEGO', 'SMITH', 'diego.smith', 'diegosmithdss@gmail.com', '47cafbff7d1c4463bbe7ba972a2b56e3', 'PROFESSOR', 'M', 3, 1, 'uploads/usuarios/ccaa57e7079717d63f18c41167adec66.jpg', '2019-08-02'),
-(3, 'IFPA ', 'Campus Itaituba', 'ifpa.itaituba', 'ifpa@ifp.edu.br', '530355ce69807f85cd763ec9189dd12e', 'Servidor', 'M', 2, 1, 'uploads/usuarios/user_masculino.png', '2019-08-03'),
-(4, 'Saulo', 'Silva', 'saulo.silva', 'saulo.castanhal@gmail.com', '530355ce69807f85cd763ec9189dd12e', 'Professor', 'M', 3, 1, 'uploads/usuarios/207fccd76d315eb7bc25ef37ef497d87.jpeg', '2019-08-03'),
-(5, 'Visitante', 'V1', 'visitante', 'visitante@ifpa.edu.br', '530355ce69807f85cd763ec9189dd12e', 'Visitante', 'M', 1, 1, 'uploads/usuarios/user_masculino.png', '2019-08-03');
+INSERT INTO `usuario` (`cod`, `unidade_cod`, `nome`, `sobrenome`, `usuario`, `email`, `senha`, `cargo`, `genero`, `nivel_acesso`, `status`, `imagem`, `data`) VALUES
+(1, 9, 'Joab', 'T. Alencar', 'joab.alencar', 'joabtorres1508@gmail.com', '47cafbff7d1c4463bbe7ba972a2b56e3', 'Administrador', 'M', 3, 1, 'uploads/usuarios/user_masculino.png', '2019-08-07');
 
 --
 -- Indexes for dumped tables
@@ -286,13 +288,6 @@ ALTER TABLE `servidor`
 ALTER TABLE `unidade`
   ADD PRIMARY KEY (`cod`);
 
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`cod`),
-  ADD UNIQUE KEY `usuario_usuario_UNIQUE` (`usuario`),
-  ADD UNIQUE KEY `email_usuario_UNIQUE` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -327,12 +322,12 @@ ALTER TABLE `servidor`
 --
 ALTER TABLE `unidade`
   MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
+  
 --
--- AUTO_INCREMENT for table `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  ADD CONSTRAINT `fk_unidade_usuario` FOREIGN KEY (`unidade_cod`) REFERENCES `unidade` (`cod`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

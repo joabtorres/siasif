@@ -2,4 +2,4 @@ RewriteEngine On
 Options -Indexes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ /siasif/index.php?url=$1 [QSA,L]

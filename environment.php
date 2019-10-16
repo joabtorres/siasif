@@ -6,5 +6,5 @@
  * 	prodution - repositório web
  */
 
-define("ENVIRONMENT", "prodution");
+define("ENVIRONMENT", "development");
 ?>

@@ -49,10 +49,10 @@ class excluirController extends controller {
                 }
             }
             if ($crudModel->remove("DELETE FROM unidade WHERE md5(cod)=:cod", array('cod' => addslashes($cod)))) {
-                header("Location: /relatorio/unidade/1");
+                header("location: relatorio/unidade/1");
             }
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -81,11 +81,11 @@ class excluirController extends controller {
                 }
                 $crudModel->delete_file($resultado['imagem']);
                 if ($crudModel->remove("DELETE FROM servidor WHERE md5(cod)=:cod", array('cod' => $cod))) {
-                    header("Location: /home");
+                    header("location: home");
                 }
             }
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -102,11 +102,11 @@ class excluirController extends controller {
             if ($resultado) {
                 $crudModel->delete_file($resultado['anexo']);
                 if ($crudModel->remove("DELETE FROM relatorio WHERE md5(cod)=:cod", array('cod' => $cod))) {
-                    header("Location: /servidor/index/" . md5($resultado['servidor_cod']));
+                    header("location: servidor/index/" . md5($resultado['servidor_cod']));
                 }
             }
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -123,11 +123,11 @@ class excluirController extends controller {
             if ($resultado) {
                 $crudModel->delete_file($resultado['anexo']);
                 if ($crudModel->remove("DELETE FROM defesa WHERE md5(cod)=:cod", array('cod' => $cod))) {
-                    header("Location: /servidor/index/" . md5($resultado['servidor_cod']));
+                    header("location: servidor/index/" . md5($resultado['servidor_cod']));
                 }
             }
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -143,11 +143,11 @@ class excluirController extends controller {
             $resultado = $crudModel->read_specific("SELECT * FROM prorrogacao WHERE md5(cod)=:cod", array('cod' => addslashes($cod)));
             if ($resultado) {
                 if ($crudModel->remove("DELETE FROM prorrogacao WHERE md5(cod)=:cod", array('cod' => $cod))) {
-                    header("Location: /servidor/index/" . md5($resultado['servidor_cod']));
+                    header("location: servidor/index/" . md5($resultado['servidor_cod']));
                 }
             }
         } else {
-            header("Location: /home");
+            header("location: home");
         }
     }
 
@@ -161,9 +161,9 @@ class excluirController extends controller {
         if ($this->checkUser() >= 3 && !empty($cod)) {
             $usuarioModel = new usuario();
             $usuarioModel->remove(array('cod' => addslashes($cod)));
-            header("Location: /usuario/index");
+            header("location: usuario/index");
         } else {
-            header("Location: /usuario/index");
+            header("location: usuario/index");
         }
     }
 

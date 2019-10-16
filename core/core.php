@@ -93,7 +93,7 @@ class core {
     }
 
     /**
-     * Está função tem como objetivo:  redirecionar automaticamente o endereço HTTP para o HTTPS.
+     * Está função tem como objetivo redirecionar automaticamente o endereço HTTP para o HTTPS.
      * @access private
      * @author Joab Torres <joabtorres1508@gmail.com>
      */

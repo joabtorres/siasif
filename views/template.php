@@ -39,7 +39,7 @@
 
     <body>
         <div id="tela_load">
-            <img src="<?php BASE_URL ?>/assets/imagens/loading.gif" style="display: block; margin: auto; margin-top: 300px;">
+            <img src="<?php echo BASE_URL ?>/assets/imagens/loading.gif" style="display: block; margin: auto; margin-top: 300px;">
         </div>
         <div id="tela_sistema">
 

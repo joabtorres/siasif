@@ -133,7 +133,7 @@ class usuarioController extends controller {
     public function sair() {
         if (isset($_SESSION['usuario_siasif'])) {
             $_SESSION = array();
-            header('Location: /login');
+            header('location: /siasif/login');
         }
     }
 

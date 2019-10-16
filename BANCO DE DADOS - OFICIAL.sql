@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`cod`, `unidade_cod`, `nome`, `sobrenome`, `usuario`, `email`, `senha`, `cargo`, `genero`, `nivel_acesso`, `status`, `imagem`, `data`) VALUES
-(1, 9, 'Joab', 'T. Alencar', 'joab.alencar', 'joabtorres1508@gmail.com', '47cafbff7d1c4463bbe7ba972a2b56e3', 'Administrador', 'M', 3, 1, 'uploads/usuarios/108c9abec2b24ee6bc0ea39ed310f284.jpg', '2019-08-07');
+(1, 9, 'Joab', 'T. Alencar', 'joab.alencar', 'joabtorres1508@gmail.com', '47cafbff7d1c4463bbe7ba972a2b56e3', 'Administrador', 'M', 3, 1, 'uploads/usuarios/user_masculino.png', '2019-08-07');
 
 --
 -- Constraints for dumped tables
