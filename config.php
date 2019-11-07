@@ -8,7 +8,7 @@ require 'environment.php';
 $config = array();
 if (ENVIRONMENT == 'development') {
     //Raiz
-    define("BASE_URL", "http://IP_DO_SERVIDOR/siasif");
+    define("BASE_URL", "http://localhost/siasif");
     //Nome do banco
     $config['dbname'] = 'siasif';
     //host

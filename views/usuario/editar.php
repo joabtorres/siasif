@@ -133,7 +133,6 @@
 					}
 				    }
 				} else {
-				    echo 111;
 				    echo ' <label><input type="radio" name="nStatuUsuario" value="1"/> Ativa</label> ';
 				    echo ' <label><input type="radio" name="nStatuUsuario" value="0" checked/> Inativo </label> ';
 				}

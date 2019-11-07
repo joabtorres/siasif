@@ -9,14 +9,14 @@ class feedbackController extends controller {
             if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
                 if (!empty($_POST['nDescricao'])) {
                     $cruddb = new usuario();
-                    $usuario = $cruddb->read_specific("SELECT * FROM usuario WHERE cod_usuario=:cod", array('cod' => $_SESSION['usuario_siasif']['cod']));
+                    $usuario = $cruddb->read_specific("SELECT * FROM usuario WHERE cod=:cod", array('cod' => $_SESSION['usuario_siasif']['cod']));
                     $email = array(
                         'nome' => $usuario['nome'] . ' ' . $usuario['sobrenome'],
                         'email' => $usuario['email'],
                         'mensagem' => $_POST['nDescricao']
                     );
                     if ($this->email($email)) {
-                        $dados['erro'] = array('class' => 'alert-success', 'msg' => "Cadastro realizado com sucesso!");
+                        $dados['erro'] = array('class' => 'alert-success', 'msg' => "Email enviado com sucesso!");
                     } else {
                          $dados['erro'] = array('class' => 'alert-danger', 'msg' => "ERRO NO ENVIO DO E-MAIL!");
                     }
@@ -29,7 +29,7 @@ class feedbackController extends controller {
     }
 
     private function email($mensagem) {
-        $assunto = 'Feedback de - ' . $mensagem['nome'];
+        $assunto = 'SIASIF: Feedback de - ' . $mensagem['nome'];
         $destinatario = 'joabtorres1508@gmail.com';
         $mensagem = '<!DOCTYPE html>
 			<html lang="pt-br">
