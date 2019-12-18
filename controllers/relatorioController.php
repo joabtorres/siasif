@@ -33,7 +33,9 @@ class relatorioController extends controller {
 	    $dados = array();
 	    $crudModel = new crud_db();
 	    if (!isset($_GET['nSerachCampo']) || !isset($_GET['nSearchFinalidade'])) {
-		header("location: 404");
+		
+		$url = "location: ".BASE_URL."/404";
+			header($url);
 	    }
 
 	    if (isset($_GET['nSerachCampo']) && !empty($_GET['nSerachCampo'])) {
@@ -49,7 +51,8 @@ class relatorioController extends controller {
 			$sql_qtd = $sql_qtd . " AND u.nome LIKE '%" . addslashes($_GET['nSerachCampo']) . "%' ";
 			break;
 		    default :
-			header("location: home");
+			$url = "location: ".BASE_URL."/home";
+			header($url);
 			break;
 		}
 		//paginacao
@@ -81,7 +84,8 @@ class relatorioController extends controller {
 	    }
 	    $this->loadTemplate($view, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -126,7 +130,8 @@ class relatorioController extends controller {
 			    $array['status'] = 0;
 			    break;
 			default :
-			    header("location: home");
+			    $url = "location: ".BASE_URL."/home";
+			header($url);
 			    break;
 		    }
 		}
@@ -284,7 +289,8 @@ class relatorioController extends controller {
 	    $dados['unidades'] = $unidades;
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	   $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -324,7 +330,8 @@ class relatorioController extends controller {
 			    $array['status'] = 0;
 			    break;
 			default :
-			    header("location: home");
+			   $url = "location: ".BASE_URL."/home";
+			header($url);
 			    break;
 		    }
 		}
@@ -456,7 +463,8 @@ class relatorioController extends controller {
 	    date_default_timezone_set('America/Sao_Paulo');
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	   $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -486,7 +494,8 @@ class relatorioController extends controller {
 			    $data['status'] = 0;
 			    break;
 			default :
-			    header("location: home");
+			   $url = "location: ".BASE_URL."/home";
+			header($url);
 			    break;
 		    }
 		}
@@ -615,7 +624,8 @@ class relatorioController extends controller {
 	    $dados['servidores'] = $servidores;
 	    $this->loadView($viewName, $dados);
 	} else {
-	    header("location: home");
+	   $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -650,7 +660,8 @@ class relatorioController extends controller {
 			    $array['status'] = 0;
 			    break;
 			default :
-			    header("location: home");
+			   $url = "location: ".BASE_URL."/home";
+			header($url);
 			    break;
 		    }
 		}
@@ -806,7 +817,8 @@ class relatorioController extends controller {
 	    $dados['unidades'] = $unidades;
 	    $this->loadView($viewName, $dados);
 	} else {
-	    header("location: home");
+	   $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 

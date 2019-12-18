@@ -1,7 +1,5 @@
 <?php
 session_start();
-header('Cache-Control: no cache');
-session_cache_limiter('private_no_expire');
 require 'config.php';
 require 'vendor/autoload.php';
 

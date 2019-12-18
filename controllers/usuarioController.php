@@ -22,7 +22,7 @@ class usuarioController extends controller {
      * @author Joab Torres <joabtorres1508@gmail.com>
      */
     public function index($page=1) {
-        if ($this->checkUser()) {
+        if ($this->checkUser()>= 3) {
             $view = "usuario/lista";
             $dados = array();
             $usuarioModel = new usuario();
@@ -53,6 +53,9 @@ class usuarioController extends controller {
                     echo '<script>$("#modal_invalido_email").modal();</script>';
                 }
             }
+        } else {
+            $url = "location: ".BASE_URL."/home";
+			header($url);
         }
     }
 
@@ -133,7 +136,8 @@ class usuarioController extends controller {
     public function sair() {
         if (isset($_SESSION['usuario_siasif'])) {
             $_SESSION = array();
-            header('location: /siasif/login');
+			$url = "location: ".BASE_URL."/login";
+			header($url);
         }
     }
 

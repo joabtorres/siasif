@@ -57,7 +57,8 @@ class loginController extends controller {
 		    $_SESSION['usuario_siasif']['nivel'] = $resultado['nivel_acesso'];
 		    //statu
 		    $_SESSION['usuario_siasif']['statu'] = $resultado['status'];
-		    header("location: home");
+		    $url = "location: ".BASE_URL."/home";
+			header($url);
 		}
 	    } else {
 		$dados['erro']['msg'] = '<i class="fa fa-info-circle" aria-hidden="true"></i> O Campo Usuário ou Senha não está preenchido!';
@@ -118,7 +119,8 @@ class loginController extends controller {
 		    $_SESSION['usuario_siasif']['nivel'] = $resultado['nivel_acesso'];
 		    //statu
 		    $_SESSION['usuario_siasif']['statu'] = $resultado['status'];
-		    header("location: home");
+		    $url = "location: ".BASE_URL."/home";
+			header($url);
 		}
 	    } else {
 		$dados['erro']['msg'] = '<i class="fa fa-info-circle" aria-hidden="true"></i> O Campo Usuário ou Senha não está preenchido!';

@@ -34,7 +34,8 @@ class cadastrarController extends controller {
 		$requisicao = md5(implode($_POST));
 
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("location: cadastrar/unidade");
+			$url = "location: ".BASE_URL."/cadastrar/unidade";
+			header($url);
 		} else {
 		    $_SESSION['last_request'] = $requisicao;
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
@@ -56,7 +57,8 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+        header($url);
 	}
     }
 
@@ -82,7 +84,8 @@ class cadastrarController extends controller {
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("location: cadastrar/servidor");
+		    $url = "location: ".BASE_URL."/cadastrar/servidor";
+            header($url);
 		} else {
 
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
@@ -193,7 +196,9 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    
+		$url = "location: ".BASE_URL."/home";
+        header($url);
 	}
     }
 
@@ -213,12 +218,14 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+        header($url);
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("location: cadastrar/relatorio/" . $cod_servidor);
+			$url = "location: ".BASE_URL."/cadastrar/relatorio/" . $cod_servidor;
+			header($url);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$relatorio = array();
@@ -271,7 +278,8 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -291,12 +299,14 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("location: cadastrar/defesa/" . $cod_servidor);
+			$url = "location: ".BASE_URL."/cadastrar/defesa/" . $cod_servidor;
+			header($url);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$defesa = array();
@@ -349,7 +359,8 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -369,13 +380,16 @@ class cadastrarController extends controller {
 	    if (is_array($resultado) && !empty($resultado)) {
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("location: home");
+			$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$requisicao = md5(implode($_POST));
 
 		if (isset($_SESSION['last_request']) && $_SESSION['last_request'] == $requisicao) {
-		    header("location: cadastrar/prorrogacao/" . $cod_servidor);
+		    
+			$url = "location: ".BASE_URL."/cadastrar/prorrogacao/" . $cod_servidor;
+			header($url);
 		} else {
 		    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 			$prorrogacao = array();
@@ -430,7 +444,8 @@ class cadastrarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -536,7 +551,8 @@ class cadastrarController extends controller {
 	    $dados['usuario'] = $usuario;
 	    $this->loadTemplate($view, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 

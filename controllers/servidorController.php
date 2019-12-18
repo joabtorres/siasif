@@ -32,7 +32,8 @@ class servidorController extends controller {
             }
             $this->loadTemplate($viewName, $dados);
         } else {
-            header("location: home");
+            $url = "location: ".BASE_URL."/home";
+			header($url);
         }
     }
 
@@ -50,7 +51,8 @@ class servidorController extends controller {
             }
             $this->loadView($viewName, $dados);
         } else {
-            header("location: home");
+            $url = "location: ".BASE_URL."/home";
+			header($url);
         }
     }
 

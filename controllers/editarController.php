@@ -37,7 +37,8 @@ class editarController extends controller {
 	    if (is_array($resultado)) {
 		$dados['unidade'] = $resultado;
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 		if (!empty($_POST['nNome'])) {
@@ -55,7 +56,8 @@ class editarController extends controller {
 
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -84,7 +86,8 @@ class editarController extends controller {
 		$resultado['termino'] = $this->formatDateView($resultado['termino']);
 		$dados['servidor'] = $resultado;
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 		//cod
@@ -190,7 +193,8 @@ class editarController extends controller {
 	    }
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -211,7 +215,8 @@ class editarController extends controller {
 		$dados['relatorio'] = $resultado;
 		$dados['servidor'] = $crudModel->read_specific("SELECT * FROM servidor WHERE cod=:cod", array('cod' => $resultado['servidor_cod']));
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 		$relatorio = array();
@@ -259,7 +264,8 @@ class editarController extends controller {
 	    }
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -280,7 +286,8 @@ class editarController extends controller {
 		$dados['defesa'] = $resultado;
 		$dados['servidor'] = $crudModel->read_specific("SELECT * FROM servidor WHERE cod=:cod", array('cod' => $resultado['servidor_cod']));
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 		$defesa = array();
@@ -328,7 +335,8 @@ class editarController extends controller {
 	    }
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -349,7 +357,8 @@ class editarController extends controller {
 		$dados['prorrogacao'] = $resultado;
 		$dados['servidor'] = $crudModel->read_specific("SELECT * FROM servidor WHERE cod=:cod", array('cod' => $resultado['servidor_cod']));
 	    } else {
-		header("location: home");
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	    if (isset($_POST['nSalvar']) && !empty($_POST['nSalvar'])) {
 		$prorrogacao = array();
@@ -397,7 +406,8 @@ class editarController extends controller {
 	    }
 	    $this->loadTemplate($viewName, $dados);
 	} else {
-	    header("location: home");
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 
@@ -539,10 +549,12 @@ class editarController extends controller {
 		}
 		$this->loadTemplate($view, $dados);
 	    } else {
-		header('location: home');
+		$url = "location: ".BASE_URL."/home";
+			header($url);
 	    }
 	} else {
-	    header('location: home');
+	    $url = "location: ".BASE_URL."/home";
+			header($url);
 	}
     }
 

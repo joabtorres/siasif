@@ -30,7 +30,8 @@ class homeController extends controller {
 	    $this->loadTemplate($view, $dados);
 	} else {
 	    $_SESSION = array();
-	    header('location: login');
+	    $url = "location: ".BASE_URL."/login";
+			header($url);
 	}
     }
 
